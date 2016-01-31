@@ -8,8 +8,7 @@ import numpy as np
 import pandas as pd
 from makeAgrid import makeAgrid
 
-#REFERENCES for the base code:
-#http://letstalkdata.com/2014/02/how-to-use-the-yelp-api-in-python/
+#REFERENCES for the base code: http://letstalkdata.com/2014/02/how-to-use-the-yelp-api-in-python/
 file = open('Ottawa_YELP_API_grids.csv', 'w')
 file.write('Bounding Box Coordinates\n')
 
