@@ -22,6 +22,8 @@ def yelpcleanup(yelpfile,outputfile):
 	#'Wilderness Tours', 'Urbanomic Interiors'
 	#Also take out some of the Aylmer, Gatineau, Hull and District de HUll restaurants,
 	#They appear due to the geographical bounding box shape.
+	#One could use a complex bounding box shape, but its just as easy to 
+	#remove these neighbourhoods using "apply".
 
 	yelpdfnew = yelpdf[~yelpdf.apply(lambda x: ((x['Restaurant'] == 'Wilderness Tours') | \
 											    (x['Restaurant'] == 'Urbanomic Interiors')) | \
@@ -109,8 +111,8 @@ def category_cleanup(messy_category,clean_category):
 	#					Removed extra square brackets and white spaces.
 	#					Split the string elements.
 	#EXAMPLE CALL:
-	# 	If you want to clean up yelpdfnew['Categories'][10]...
-	#	category_cleanup(yelpdfnew['Categories'][10],clean_list)
+	# 	If you want to clean up yelpdfnew['Categories'][10] and overwrite...
+	#	category_cleanup(yelpdfnew['Categories'][10],yelpdfnew['Categories'][10])
 
 	clean_category = messy_category.replace('[','').replace(']','')
 	clean_category = [i for i in re.split('[,]', clean_category) if i != '']
