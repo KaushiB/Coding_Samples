@@ -10,6 +10,8 @@ import sys, os
 #REFERENCES: Twitter data was streamed using the base code in:
 #            http://marcobonzanini.com/2015/03/02/mining-twitter-data-with-python-part-1/
 #            Streaming done for specific hastag(s).
+#            For example, #DavidBowie or #RIPDavidBowie
+
 
 def TweetCollection(inputlist,outputfile):
     #INPUT:
