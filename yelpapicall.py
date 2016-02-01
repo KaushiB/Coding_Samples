@@ -76,6 +76,15 @@ def main():
 	
 
 def get_results(params):
+	#INPUT:
+	#	params: A string of search parameters as defined by YELP search API
+	#			documentation.
+	#OUTPUT:
+	#	restaurandata: A Pandas dataframe containing restaurant information
+	#				   extracted from the YELP search API results.
+	#	response['total']: Total number of restaurants returned by the search API,
+	#					   for a given radial search, city, bounding box.
+
 	host = 'api.yelp.com'
 	path = '/v2/search/'
 	url = 'https://{0}{1}?'.format(host, urllib.quote(path.encode('utf8')))
@@ -149,32 +158,50 @@ def get_results(params):
 	
 		
 def get_search_parameters1(lat,lon, category_filter, sort_filter):
-	#Parameters based on radial search (in km) around a single coordinate.
-	#Including a category filter to fine-tune the search.
+	#INPUT:
+	# lat, lon: Central latitude and longitude for a radial search.
+	# radius_filter: The search radius in meters.
+	# category_filter: Category to fine-tune the search.
+	#				   For example, "Sushi" for restaurants.
+	# sort_filter: Default sort=0, 
+	#			   see YELP search API documentation for more information.
+	#OUTPUT:
+	# A string with search parameters to be passed to the search API.
+	
 	params = {}
 	params["term"] = "restaurant"
 	params["ll"] = "{},{}".format(str(lat),str(lon))
 	params["radius_filter"] = "20000"
 	params["category_filter"] = "{}".format(str(category_filter))
-	params["sort"] = "{}".format(str(sort_filter)) #Default sort=0, see YELP API documentation for more information.
+	params["sort"] = "{}".format(str(sort_filter)) 
 
 	return params
 
 def get_search_parameters2(location,category_filter, sort_filter):
-	#Parameters based on a search of city or a specific neighbourhood.
-	#Including a category filter to fine-tune the search.
+	#INPUT:
+	# location: City or a specific neighbourhood for search.
+	# category_filter: Category to fine-tune the search.
+	#				   For example, "Sushi" for restaurants.
+	# sort_filter: Default sort=0, 
+	#			   see YELP search API documentation for more information.
+	#OUTPUT:
+	# A string with search parameters to be passed to the search API.
+	
 	params = {}
 	params["term"] = "restaurant"
 	params["location"] = "{}".format(str(location))
 	params["category_filter"] = "{}".format(str(category_filter))
-	params["sort"] = "{}".format(str(sort_filter)) #Default sort = 0, see YELP API documentation for more information.
+	params["sort"] = "{}".format(str(sort_filter)) 
 
 	return params
 
 def get_search_parameters3(sw_coords, ne_coords):
-	#Search parameters based on geographical bounding box.
-	#Not including a category filter because the bounding box size can be 
-	#iterated upon to only include 40 results at a time.
+	#INPUT:
+	# sw_coords, ne_coords: Coordinates for the SW and NE vertices of the
+	#						geographical bounding box for the search API.
+	#OUTPUT:
+	# A string with search parameters to be passed to the search API.
+	
 	params = {}
 	sw_lat, sw_lon = list(sw_coords) #Unpack the coordinates of the bounding box.
 	ne_lat, ne_lon = list(ne_coords) 
