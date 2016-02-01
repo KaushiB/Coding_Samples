@@ -11,6 +11,8 @@ import sys, os
 #            http://marcobonzanini.com/2015/03/02/mining-twitter-data-with-python-part-1/
 #            Streaming done for specific hastag(s).
 #            For example, #DavidBowie or #RIPDavidBowie
+#            Reference for word cloud:
+#            https://amueller.github.io/word_cloud/index.html
 
 
 def TweetCollection(inputlist,outputfile):
