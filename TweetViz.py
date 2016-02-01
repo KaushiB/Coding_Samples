@@ -72,6 +72,9 @@ def TweetWordCloud(inputfile,lang,outputimage):
     
     #Construct the word cloud.
     words = ' '.join(tweetdf2['text'])
+    #NOTES FOR IMPROVEMENT:
+    #Consider how to remove emoticons,
+    #unicode characters, selective punctuation etc.
     wordfilter = " ".join([word for word in words.split()
                            if 'http' not in word #Take out urls
                            and not word.startswith('@') #Take out twitter handles.
