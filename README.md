@@ -18,3 +18,7 @@ TweetViz.py
 * The Twitter API Python streamer from http://marcobonzanini.com/2015/03/02/mining-twitter-data-with-python-part-1/ is not included here.
 
 The visualization is included in this repository: davidbowietributes.png
+
+3) File added on February 2, 2016. A simple code to take the JSON output from the Twitter API streaming code and store the data in a PostgreSQL database. Store a few tables for more SQL authoring exercises.
+
+Twitter_to_PSQL.py
