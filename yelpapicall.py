@@ -47,7 +47,7 @@ def main():
 				yelpdf = pd.concat([yelpdf,tempyelpdf], ignore_index=True)
 				file.write('Cell'+str(i)+str(j)+','+str(sw_coords)+'|'+str(ne_coords)+','+str(total_results)+'\n')
 			else:
-				#Sample the grid finer by halving the sampling interval.
+				#Sample the grid finer by changing the sampling interval.
 				if (20 < total_results <= 100):
 					deltaEWsmall = 0.50
 					deltaNSsmall = 0.50
