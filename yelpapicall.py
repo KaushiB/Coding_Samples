@@ -10,6 +10,7 @@ from makeAgrid import makeAgrid
 
 #REFERENCES for the base code:
 #http://letstalkdata.com/2014/02/how-to-use-the-yelp-api-in-python/
+
 file = open('Ottawa_YELP_API_grids.csv', 'w')
 file.write('Bounding Box Coordinates\n')
 
@@ -91,10 +92,11 @@ def get_results(params):
 
 	#Obtain these from Yelp's manage access page.
 	#Do NOT publish these on a public forum.
-	CONSUMER_KEY = 'INSERT YOUR OWN'
-	CONSUMER_SECRET = 'INSERT YOUR OWN'
-	TOKEN = 'INSERT YOUR OWN'
-	TOKEN_SECRET = 'INSERT YOUR OWN'
+
+	CONSUMER_KEY = 'neyH3izE9cDsWFDuW8yCtA'
+	CONSUMER_SECRET = 't__k35vkc-eiXuFZ-Ik_nPBlc8s'
+	TOKEN = 'PK3iXgb5Wy8V8FArzZ2xo6GueJKyaK-U'
+	TOKEN_SECRET = 'YwYYexDLV4DbHsMoTi12fIuP7gk'
   	
 	session = rauth.OAuth1Session(
 		consumer_key = CONSUMER_KEY
@@ -108,8 +110,8 @@ def get_results(params):
 	#Extract only the required keys into a csv file.
 	response = request.json()
 
-	print 'Total number of restaurants found in Yelp: '+str(response['total'])
-	print '-----------------------------------------------------------------------------------------------------------------------'
+	#print 'Total number of restaurants found in Yelp: '+str(response['total'])
+	#print '-----------------------------------------------------------------------------------------------------------------------'
 
 	colnames = ['Restaurant','City','Latitude','Longitude','Address','Phone','Yelp_rating','Vote_Count','Categories','URL']
 	restaurantdata = pd.DataFrame(columns=colnames)
