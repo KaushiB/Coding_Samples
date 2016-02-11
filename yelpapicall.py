@@ -48,7 +48,7 @@ def main():
 				yelpdf = pd.concat([yelpdf,tempyelpdf], ignore_index=True)
 				file.write('Cell'+str(i)+str(j)+','+str(sw_coords)+'|'+str(ne_coords)+','+str(total_results)+'\n')
 			else:
-				#Sample the grid finer by halving the sampling interval.
+				#Sample the grid finer by changing the sampling interval.
 				if (20 < total_results <= 100):
 					deltaEWsmall = 0.50
 					deltaNSsmall = 0.50
@@ -113,7 +113,8 @@ def get_results(params):
 	#print 'Total number of restaurants found in Yelp: '+str(response['total'])
 	#print '-----------------------------------------------------------------------------------------------------------------------'
 
-	colnames = ['Restaurant','City','Latitude','Longitude','Address','Phone','Yelp_rating','Vote_Count','Categories','URL']
+	colnames = ['Restaurant','City','Latitude','Longitude','Address','Phone',\
+		    'Yelp_rating','Vote_Count','Categories','URL']
 	restaurantdata = pd.DataFrame(columns=colnames)
 
 	if (response['total'] < 20): 
@@ -122,39 +123,43 @@ def get_results(params):
 		listing_number = np.array(xrange(20))
 	
 	restaurantdata['Restaurant'] = map(lambda x: response["businesses"][x]['name'] if \
-												 response["businesses"][x].has_key('name') else None, listing_number)
+						     response["businesses"][x].has_key('name') else None, listing_number)
 	
 	restaurantdata['City'] = map(lambda x: response["businesses"][x]['location']['city'] if \
-										   response["businesses"][x]['location'].has_key('city') \
-										   else None, listing_number)
+					       response["businesses"][x]['location'].has_key('city') \
+					       else None, listing_number)
 	
 	restaurantdata['Latitude'] = map(lambda x: response["businesses"][x]['location']['coordinate']['latitude'] if \
-											   response["businesses"][x]['location'].has_key('coordinate') \
-											   else None, listing_number)
+						   response["businesses"][x]['location'].has_key('coordinate') \
+						   else None, listing_number)
 	
 	restaurantdata['Longitude'] = map(lambda x: response["businesses"][x]['location']['coordinate']['longitude'] if \
-												response["businesses"][x]['location'].has_key('coordinate') \
-												else None, listing_number)	
+						    response["businesses"][x]['location'].has_key('coordinate') \
+						    else None, listing_number)	
 
 	restaurantdata['Address'] = map(lambda x: response["businesses"][x]['location']['address'] if \
-											  response["businesses"][x]['location'].has_key('address') \
-											  else None, listing_number)
+						  response["businesses"][x]['location'].has_key('address') \
+						  else None, listing_number)
 
 	restaurantdata['Phone'] = map(lambda x: response["businesses"][x]['display_phone'] if \
-											response["businesses"][x].has_key('display_phone') \
-											else None, listing_number)		
+						response["businesses"][x].has_key('display_phone') \
+						else None, listing_number)		
 
 	restaurantdata['Yelp_rating'] = map(lambda x: response["businesses"][x]['rating'] if \
-												  response["businesses"][x].has_key('rating') else None, listing_number)
+						      response["businesses"][x].has_key('rating') \
+						      else None, listing_number)
 	
 	restaurantdata['Vote_Count'] = map(lambda x: response["businesses"][x]['review_count'] if \
-												 response["businesses"][x].has_key('review_count') else None, listing_number)
+						     response["businesses"][x].has_key('review_count') \
+						     else None, listing_number)
 	
 	restaurantdata['Categories'] = map(lambda x: response["businesses"][x]['categories'] if \
-												 response["businesses"][x].has_key('categories') else None, listing_number)
+						     response["businesses"][x].has_key('categories') \
+						     else None, listing_number)
 
 	restaurantdata['URL'] = map(lambda x: response["businesses"][x]['url'] if \
-										  response["businesses"][x].has_key('url') else None, listing_number)
+					      response["businesses"][x].has_key('url') \
+					      else None, listing_number)
 	
 	return restaurantdata, response['total']
 	

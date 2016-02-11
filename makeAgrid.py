@@ -11,11 +11,13 @@ def makeAgrid(lat0, lon0, distX, distY, deltaX, deltaY):
 #	lat0 = The origin latitude (in this case, the southernmost point)
 # 	lon0 = The origin longitude (in this case, the westernmost point)
 # 	distX = The west-east length of the grid.
-#   distY = The south-north length of the grid.
+#       distY = The south-north length of the grid.
 #	deltaX = The west-east cell size in kilometers.
 #	deltaY = The south-north cell size in kilometers.
 #OUTPUT:
-#	citygrid = A city grid with SW-NW-NE-SE coordinates of each cell, of uniform grid length (NOT angular distance).
+#	citygrid = A city grid (in Pandas dataframe fromat)
+#		   with SW-NW-NE-SE coordinates of each cell, of uniform grid length going west-east  
+#		   and south-north (these are NOT angular distances).
 
 	#Form the grid west-east and then south-north.
 	origin = geopy.Point(lat0, lon0)
