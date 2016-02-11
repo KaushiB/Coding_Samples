@@ -8,6 +8,10 @@ makeAgrid.py
 yelpapicall.py
 yelpcleanup.py
 
+*******************************************************************************************************
+!!!UPDATE!!!: I have added several extra coding samples labeled *OOP.py which attains the same objectives as makeAgrid.py and yelpapicall.py. With the newer coding samples, I'm adopting an Object-Oriented Programming style (and improving as fast as possible!) as opposed to procedural style programming, which I'm told is a quick give-away of people coming from an academic background. The code yelprestaurantsearch.py calls on the Classes and their corresponding instances to create a dataframe which contains the YELP information about restaurants in Ottawa. These codes can be adjusted for pretty much any type of businesses in any city by changing the geographical input, "search_term" and "search_type" parameters.
+********************************************************************************************************
+
 The visualization can be viewed at:
 
 https://public.tableau.com/profile/kaushala.bandara#!/vizhome/YELP_ratings_Ottawa_modified/YELP_dashboard2
