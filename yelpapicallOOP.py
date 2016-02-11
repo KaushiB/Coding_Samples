@@ -75,10 +75,10 @@ class YelpSearchParameters(object):
 class YelpSessionInitiate(YelpSearchParameters):
 	host = 'api.yelp.com'
 	path = '/v2/search/'
-	__consumer_key = 'neyH3izE9cDsWFDuW8yCtA'
-	__consumer_secret = 't__k35vkc-eiXuFZ-Ik_nPBlc8s'
-	__access_token = 'PK3iXgb5Wy8V8FArzZ2xo6GueJKyaK-U'
-	__access_token_secret = 'YwYYexDLV4DbHsMoTi12fIuP7gk'
+	__consumer_key = 'insert_your_own_key'
+	__consumer_secret = 'insert_your_own_key'
+	__access_token = 'insert_your_own_key'
+	__access_token_secret = 'insert_your_own_key'
 
 	def __init__(self, search_term,search_type, **kwargs):
 		#Inherit the arguments from the parent class YelpSearchParameters.

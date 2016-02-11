@@ -93,10 +93,10 @@ def get_results(params):
 	#Obtain these from Yelp's manage access page.
 	#Do NOT publish these on a public forum.
 
-	CONSUMER_KEY = 'neyH3izE9cDsWFDuW8yCtA'
-	CONSUMER_SECRET = 't__k35vkc-eiXuFZ-Ik_nPBlc8s'
-	TOKEN = 'PK3iXgb5Wy8V8FArzZ2xo6GueJKyaK-U'
-	TOKEN_SECRET = 'YwYYexDLV4DbHsMoTi12fIuP7gk'
+	CONSUMER_KEY = 'INSERT_YOUR_OWN_KEY'
+	CONSUMER_SECRET = 'INSERT_YOUR_OWN_KEY'
+	TOKEN = 'INSERT_YOUR_OWN_KEY'
+	TOKEN_SECRET = 'INSERT_YOUR_OWN_KEY'
   	
 	session = rauth.OAuth1Session(
 		consumer_key = CONSUMER_KEY
